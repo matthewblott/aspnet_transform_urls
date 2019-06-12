@@ -19,11 +19,7 @@ namespace aspnet_transform_urls
     {
       services.AddMvc(options =>
       {
-//        options.Conventions.Add(new RouteTokenTransformerConvention(
-//          new SlugifyParameterTransformer()));
-//        
-//        options.ValueProviderFactories.Add(new KebabCaseQueryValueProviderFactory());
-
+        options.ValueProviderFactories.Add(new KebabCaseQueryValueProviderFactory());
       });
      
       services.AddRouting(option =>
