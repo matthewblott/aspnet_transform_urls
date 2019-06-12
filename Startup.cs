@@ -19,11 +19,17 @@ namespace aspnet_transform_urls
     {
       services.AddMvc(options =>
       {
-        options.Conventions.Add(new RouteTokenTransformerConvention(
-          new SlugifyParameterTransformer()));
-        
-        options.ValueProviderFactories.Add(new KebabCaseQueryValueProviderFactory());
+//        options.Conventions.Add(new RouteTokenTransformerConvention(
+//          new SlugifyParameterTransformer()));
+//        
+//        options.ValueProviderFactories.Add(new KebabCaseQueryValueProviderFactory());
 
+      });
+     
+      services.AddRouting(option =>
+      {
+        option.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+        option.LowercaseUrls = true;
       });
       
     }
@@ -37,9 +43,10 @@ namespace aspnet_transform_urls
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+        endpoints.MapControllerRoute("default", "{controller:slugify}/{action:slugify}/{id?}", 
+          defaults: new { controller = "Home", action = "Index" });
       });      
-        
+
     }
     
   }

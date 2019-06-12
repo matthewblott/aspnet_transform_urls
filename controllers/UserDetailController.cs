@@ -3,7 +3,7 @@ using aspnet_transform_urls.models;
 
 namespace aspnet_transform_urls.controllers
 {
-  public class UsersController : Controller
+  public class UserDetailController : Controller
   {
     public IActionResult Index()
     {
@@ -19,7 +19,7 @@ namespace aspnet_transform_urls.controllers
 
     }
     
-    public IActionResult Find(string firstName, string lastName)
+    public IActionResult FindUser(string firstName, string lastName)
     {
       var user = new UserViewModel
       {
