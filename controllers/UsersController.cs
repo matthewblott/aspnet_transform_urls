@@ -19,6 +19,18 @@ namespace aspnet_transform_urls.controllers
 
     }
     
+    public IActionResult Find(string firstName, string lastName)
+    {
+      var user = new UserViewModel
+      {
+        FirstName = firstName,
+        LastName = lastName
+      };
+      
+      return View(nameof(Index), user);
+
+    }
+    
   }
   
 }

@@ -21,6 +21,9 @@ namespace aspnet_transform_urls
       {
         options.Conventions.Add(new RouteTokenTransformerConvention(
           new SlugifyParameterTransformer()));
+        
+        options.ValueProviderFactories.Add(new KebabCaseQueryValueProviderFactory());
+
       });
       
     }

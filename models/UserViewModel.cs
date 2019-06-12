@@ -18,6 +18,12 @@ namespace aspnet_transform_urls.models
     [Required]
     [DataType(DataType.Password)]
     public string Password { get; set; }  
+
+    [Display(Name = "First Name", Prompt = "First Name")]
+    public string FirstName { get; set; }
+    
+    [Display(Name = "Last Name", Prompt = "Last Name")]
+    public string LastName { get; set; }
     
     [MaxLength(20)]
     [Required]
